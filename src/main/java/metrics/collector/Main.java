@@ -8,6 +8,12 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
+/**
+ * ENVs
+ * JMX_HOST - host of UAA instance.
+ * JMX_PORT - UAA's JMX port.
+ * HTTP_PORT - port of metrics exporter server.
+ */
 public class Main {
     private static final Logger LOG = LoggerFactory.getLogger(Main.class);
 

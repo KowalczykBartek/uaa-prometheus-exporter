@@ -5,7 +5,7 @@
 Result of experiments with UAA's mbeans, simple exporter of UAA's metrics to prometheus format. It include also parsed output from cloudfoundry.identity.ServerRequests.Globals (json data).
 Code quality is debatable, but it works (｡◕‿‿◕｡)
 
-## Building
+## building
 Just generate shadow jar
 ```
 ./gradlew clean shadowJar
@@ -20,7 +20,7 @@ property 'com.sun.management.jmxremote.port', System.getProperty('com.sun.manage
 property 'com.sun.management.jmxremote.ssl', System.getProperty('com.sun.management.jmxremote.ssl', 'ssl')
 ```
 
-## Output
+## output
 Example output (not all metrics included):
 ```
 # HELP cloudfoundry.identity UaaAudit
