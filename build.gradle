@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group 'uaa-prometheus-exporter'
+version '1.0-SNAPSHOT'
+
+task buildApp(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'UAA metrics collector',
+                'Implementation-Version': version,
+                'Main-Class': 'metrics.collector.Main'
+    }
+    baseName = project.name + '-server'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+    compile 'io.prometheus:simpleclient:0.6.0'
+    compile 'io.prometheus:simpleclient_httpserver:0.6.0'
+
+    compile 'ch.qos.logback:logback-core:1.2.3'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+
+    compile group: 'com.google.guava', name: 'guava', version: '27.0.1-jre'
+    
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
